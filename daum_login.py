@@ -1,25 +1,24 @@
-import tkinter
-from tkinter import ttk
+from tkinter import *
 from selenium import webdriver
 import time
 
-win = tkinter.Tk()
+win = Tk()
 win.title("Daum Log-in")
 win.geometry("400x300")
 win.option_add("*Font", "궁서 20")
 # 다음 로고
-lab_d = ttk.Label(win)
-img = tkinter.PhotoImage(
+lab_d = Label(win)
+img = PhotoImage(
     file="/Users/goatiro/Desktop/Code/tmp/daum.png", master=win)
 img = img.subsample(2)
 lab_d.config(image=img)
 lab_d.pack()
 # id 라벨
-lab1 = ttk.Label(win)
+lab1 = Label(win)
 lab1.config(text="ID")
 lab1.pack()
 # id 입력창
-ent1 = ttk.Entry(win)
+ent1 = Entry(win)
 ent1.insert(0, "temp@temp.com")
 
 
@@ -31,15 +30,15 @@ def clear(event):
 ent1.bind("<Button-1>", clear)
 ent1.pack()
 # pw창 라벨
-lab2 = ttk.Label(win)
+lab2 = Label(win)
 lab2.config(text="Password")
 lab2.pack()
 # pw 입력창
-ent2 = ttk.Entry(win)
+ent2 = Entry(win)
 ent2.config(show="*")
 ent2.pack()
 # 로그인 버튼
-btn = ttk.Button(win)
+btn = Button(win)
 btn.config(text="로그인")
 
 
@@ -61,7 +60,7 @@ def login():
 btn.config(command=login)
 btn.pack()
 # 메시지 라벨
-lab3 = ttk.Label(win)
+lab3 = Label(win)
 lab3.pack()
 
 win.mainloop()

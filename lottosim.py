@@ -1,18 +1,35 @@
 # import
 from tkinter import *
-from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
+import random
+
+p1 = 2000000000
+p2 = 55000000
+p3 = 1500000
+p4 = 50000
+p5 = 5000
+
+rnd = []
+
+while len(rnd) < 6:
+    rnd.append(random.randint(1, 45))
+    a = set(rnd)
+    rnd = list(a)
 
 win = Tk()
 
-win.title("Lotto")
+win.title("Lotto ver1.0")
 
 win.geometry('500x300')
 
 win.resizable(False, False)
 
 win.option_add("*Font", "맑은고딕 16")
+
+
+def enter(event):
+    lotto_p()
 
 
 def lotto_p():
@@ -33,18 +50,19 @@ def lotto_p():
 
 
 lab = Label(win)
-lab.config(text="회차 입력")
-lab.pack()
+lab.config(text="반복 횟수")
 
 ent = Entry(win)
 ent.pack()
 
 btn = Button(win)
-btn.config(text="번호 확인")
+btn.config(text="입력")
 btn.config(width=20)
 btn.config(command=lotto_p)
 
 btn.pack()
+
+win.bind('<Return>', enter)
 
 lab2 = Label(win)
 lab2.pack()
